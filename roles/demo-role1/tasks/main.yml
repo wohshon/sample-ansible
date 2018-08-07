@@ -1,0 +1,10 @@
+---
+- name: test1
+  hosts: ansible
+  remote_user: virtuser
+  become: true
+  tasks:
+    - name: test1.1
+      debug: var=hostvars[inventory_hostname]['ansible_architecture']   
+    - name: test1.2
+      debug: var=list_result

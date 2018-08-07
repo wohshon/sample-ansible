@@ -1,0 +1,14 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: test
+  hosts: all
+  remote_user: virtuser
+  become: true
+
+  roles:
+    - demo-role
+
+- name: test
+  import_playbook: "roles/demo-role1/tasks/main.yml"
+

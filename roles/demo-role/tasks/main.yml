@@ -1,0 +1,40 @@
+---
+
+- name: task 1
+  debug:
+    msg: "hello"
+
+- name: task 2
+  ping:
+
+- name: task 3
+  setup:  
+
+- name: task 4
+  debug:
+    msg: "{{ hostvars }}"
+
+- name: task 5
+  debug:
+    msg: "{{ ansible_all_ipv4_addresses }}"
+
+- name: task 6
+  debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+  debug: var=hostvars[inventory_hostname]['ansible_all_ipv4_addresses']
+
+- name: task 7
+  shell: "ls -ltr /tmp"
+  register: list_result
+  ignore_errors: True
+
+- name: task 8
+  debug: var=list_result
+
+- name: task 9
+  debug:
+    msg: "{{ list_result }}"
+
+- name: task 10
+  debug: 
+    msg: 123
+#  import_playbook: "../../demo-role1/tasks/main.yml"
